@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171714">
+<meta name="description" content="MS Designs is an architecture, interior design and landscape studio creating thoughtful, elegant spaces. Contact us for your next project.">
+<title>MS Designs | Architecture · Interiors · Landscape</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --bg:#171714;
+ --panel:#201f1b;
+ --cream:#eee9df;
+ --gold:#c8aa79;
+ --text:#f5f1e9;
+ --muted:#aaa69b;
+ --line:#ffffff1b;
+ --light:#e7dfd1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(1180px,90%);margin:auto}
+section{padding:105px 0}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:17px}
+.heading{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(39px,5vw,65px);line-height:1.13;letter-spacing:-1px}
+.heading em{font-weight:400;color:var(--gold)}
+.section-head{text-align:center;max-width:740px;margin:0 auto 54px}
+.section-head p{font-size:13px;line-height:1.9;color:var(--muted);max-width:570px;margin:18px auto 0}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:15px;padding:16px 24px;background:var(--gold);color:#1a1915;border:1px solid var(--gold);font-size:10px;letter-spacing:1.3px;font-weight:700;transition:.3s}
+.btn:hover{background:transparent;color:var(--gold);transform:translateY(-3px)}
+.btn-ghost{background:transparent;color:white;border-color:#ffffff60}
+.btn-ghost:hover{background:white;color:#171714}
+.text-link{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-top:22px}
+.text-link span{transition:transform .25s;font-size:17px}
+.text-link:hover span{transform:translateX(5px)}
+/* Navigation */
+.navbar{position:absolute;top:0;left:0;width:100%;height:88px;z-index:100;display:flex;align-items:center;border-bottom:1px solid #ffffff19}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-icon{width:43px;height:43px;border:1px solid var(--gold);display:grid;place-items:center;font-family:'Playfair Display',serif;color:var(--gold);font-size:23px}
+.brand-title{font-family:'Playfair Display',serif;font-size:23px;letter-spacing:.3px}
+.brand-sub{font-size:8px;letter-spacing:2.3px;color:var(--gold);margin-top:5px}
+.nav-links{display:flex;align-items:center;gap:27px}
+.nav-links a{font-size:10px;color:#e3ded4;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links .nav-contact{border:1px solid var(--gold);padding:13px 17px;color:var(--gold)}
+.menu-toggle{display:none;border:0;background:none;color:white;font-size:27px}
+/* Hero */
+.hero{height:100svh;min-height:690px;max-height:1000px;position:relative;display:flex;align-items:center;overflow:hidden;background:#25231e}
+.hero-images,.hero-images img,.hero-overlay{position:absolute;inset:0;width:100%;height:100%}
+.hero-images img{opacity:0;transition:opacity 1.1s;object-fit:cover}
+.hero-images img.active{opacity:1}
+.hero-overlay{background:linear-gradient(90deg,rgba(18,18,15,.91),rgba(18,18,15,.67) 43%,rgba(18,18,15,.16)),linear-gradient(0deg,rgba(15,15,13,.45),transparent 40%)}
+.hero-content{position:relative;z-index:2;max-width:790px;padding-top:65px}
+.hero-kicker{display:flex;align-items:center;gap:13px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#dfc7a1;margin-bottom:27px}
+.hero-kicker:before{content:"";height:1px;width:35px;background:var(--gold)}
+.hero h1{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(55px,8.5vw,104px);line-height:1.02;letter-spacing:-2px}
+.hero h1 em{color:#d7bd93;font-weight:400}
+.hero-content>p{max-width:510px;font-size:13px;line-height:2;color:#d1cdc4;margin:27px 0 31px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+.hero-bottom{position:absolute;z-index:3;bottom:35px;left:5%;right:5%;display:flex;justify-content:space-between;align-items:center}
+.hero-caption{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#e5ded1}
+.slider-controls{display:flex;align-items:center;gap:10px}
+.slider-count{font-size:11px;color:var(--gold);margin-right:9px}
+.slider-controls button{height:42px;width:42px;border:1px solid #ffffff65;background:#ffffff10;color:white;font-size:18px}
+.slider-controls button:hover{background:var(--gold);color:var(--bg)}
+/* Intro ticker */
+.ticker{padding:23px 0;background:var(--gold);color:#201d17;overflow:hidden}
+.ticker-track{display:flex;justify-content:space-around;gap:30px;flex-wrap:wrap}
+.ticker span{font-family:'Playfair Display',serif;font-size:16px;white-space:nowrap}
+.ticker i{font-style:normal;margin-right:11px}
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:center}
+.about-image-wrap{position:relative;padding:0 27px 27px 0}
+.about-image-wrap>img{height:570px}
+.about-image-wrap:after{content:"";position:absolute;bottom:0;right:0;width:65%;height:65%;border:1px solid var(--gold);z-index:-1}
+.about-tag{position:absolute;right:-3px;top:35px;background:var(--gold);color:#211c14;padding:18px 21px;max-width:165px}
+.about-tag strong{font-family:'Playfair Display',serif;font-size:29px;font-weight:400;display:block}
+.about-tag span{font-size:9px;line-height:1.7;display:block;margin-top:5px}
+.about-copy p{font-size:13px;color:var(--muted);line-height:2;margin-top:19px}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:29px 0}
+.value{border-top:1px solid #c8aa7960;padding-top:14px}
+.value strong{font-size:12px;font-weight:600}
+.value span{display:block;color:var(--muted);font-size:10px;line-height:1.8;margin-top:6px}
+/* Services */
+.services{background:var(--cream);color:#26241f}
+.services .eyebrow{color:#947348}
+.services .section-head p{color:#706d65}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{background:#e5dfd3;transition:transform .35s;overflow:hidden}
+.service-card:hover{transform:translateY(-7px)}
+.service-img{height:285px;position:relative;overflow:hidden;background:#d1c7b7}
+.service-img img{height:100%;transition:transform .7s}
+.service-card:hover .service-img img{transform:scale(1.055)}
+.service-number{position:absolute;top:15px;left:15px;background:#f2ece1;color:#27231e;font-size:9px;letter-spacing:1px;padding:9px 12px}
+.service-copy{padding:24px}
+.service-copy h3{font-family:'Playfair Display',serif;font-size:27px;font-weight:400}
+.service-copy p{font-size:11px;line-height:1.9;color:#716c62;margin-top:10px;min-height:42px}
+.service-copy .text-link{color:#8c693c}
+/* Design philosophy */
+.philosophy{background:#e4d8c6;color:#26221c}
+.philosophy-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:75px}
+.philosophy-copy p{font-size:13px;line-height:2;color:#6c6356;margin:20px 0}
+.philosophy-list{list-style:none;margin:25px 0 30px}
+.philosophy-list li{font-size:12px;padding:13px 0;border-bottom:1px solid #26221c24}
+.philosophy-list li:before{content:"✳";color:#a17b49;margin-right:13px}
+.philosophy-images{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+.philosophy-images img{height:285px}
+.philosophy-images img:nth-child(2){margin-top:45px}
+.philosophy-images img:nth-child(3){margin-top:-35px}
+.philosophy-images img:nth-child(4){margin-top:10px}
+/* Portfolio */
+.portfolio-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:260px 260px;gap:13px}
+.portfolio-item{position:relative;overflow:hidden;background:#282721}
+.portfolio-item:first-child{grid-row:span 2}
+.portfolio-item img{height:100%;transition:transform .7s}
+.portfolio-item:hover img{transform:scale(1.06)}
+.portfolio-shade{position:absolute;inset:0;background:linear-gradient(0deg,#12120fe6,transparent 65%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.portfolio-shade small{font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.portfolio-shade h3{font-family:'Playfair Display',serif;font-size:25px;font-weight:400;margin-top:7px}
+.portfolio-note{text-align:center;font-size:10px;color:var(--muted);margin-top:22px}
+/* Process */
+.process{background:#211f1a}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.process-item{padding:25px 20px;border-top:1px solid #c8aa7960}
+.process-number{font-family:'Playfair Display',serif;font-size:43px;color:var(--gold)}
+.process-item h3{font-size:13px;margin:15px 0 10px}
+.process-item p{font-size:11px;line-height:1.9;color:var(--muted)}
+/* Why us */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why-card{padding:29px 25px;border:1px solid var(--line);transition:border-color .3s,background .3s}
+.why-card:hover{border-color:#c8aa7970;background:#ffffff05}
+.why-icon{width:45px;height:45px;display:grid;place-items:center;border:1px solid #c8aa7970;color:var(--gold);font-size:20px;margin-bottom:21px}
+.why-card h3{font-family:'Playfair Display',serif;font-size:23px;font-weight:400}
+.why-card p{font-size:11px;line-height:1.9;color:var(--muted);margin-top:12px}
+/* Testimonials */
+.testimonials{background:#e8e0d4;color:#27241f}
+.testimonials .eyebrow{color:#947348}
+.testimonials .section-head p{color:#70685e}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.review-card{background:#f4eee4;padding:29px 25px;border:1px solid #d9cebd}
+.review-stars{font-size:12px;color:#a5804b;letter-spacing:3px}
+.review-card blockquote{font-family:'Playfair Display',serif;font-size:21px;line-height:1.55;margin:20px 0;color:#363128}
+.review-card small{font-size:9px;letter-spacing:1px;color:#83786a}
+/* FAQ */
+.faq-grid{max-width:800px;margin:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-question{width:100%;padding:23px 0;background:none;border:0;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;font-size:12px;font-weight:600}
+.faq-question span:last-child{color:var(--gold);font-size:23px;font-weight:400;transition:transform .25s}
+.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.faq-answer>div{overflow:hidden}
+.faq-answer p{font-size:12px;color:var(--muted);line-height:1.9;padding-bottom:0}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-item.open .faq-answer p{padding-bottom:20px}
+.faq-item.open .faq-question span:last-child{transform:rotate(45deg)}
+/* Contact */
+.contact{background:#e9e0d3;color:#25221d}
+.contact .eyebrow{color:#947348}
+.contact .section-head p{color:#71695d}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:start}
+.contact-copy>.heading{font-size:46px}
+.contact-copy>p{font-size:12px;line-height:2;color:#70685c;margin:20px 0 25px}
+.contact-info{margin-top:25px}
+.contact-row{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid #d3c6b4}
+.contact-icon{color:#947348;font-size:20px;width:25px}
+.contact-row strong{font-size:11px;display:block;margin-bottom:6px}
+.contact-row span{font-size:11px;color:#70685c;line-height:1.8;overflow-wrap:anywhere}
+.contact-form{padding:32px;background:#f5f0e8}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;margin-bottom:25px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:10px;font-weight:700;margin-bottom:8px}
+.field input,.field textarea,.field select{width:100%;padding:13px;border:1px solid #d9cdbd;background:#fffdf8;color:#29251f;font-size:12px;outline:none;border-radius:0}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#a98551}
+.field textarea{height:105px;resize:vertical}
+.contact-form .btn{width:100%;border:1px solid #b99461}
+.form-help{font-size:10px;line-height:1.8;color:#81786b;margin-top:12px}
+/* CTA */
+.cta{background:var(--gold);color:#211d17;padding:72px 0;text-align:center}
+.cta .eyebrow{color:#51402a}
+.cta .heading{font-size:clamp(37px,5vw,57px)}
+.cta p{font-size:12px;line-height:1.9;color:#493b2b;max-width:530px;margin:18px auto 26px}
+.cta .btn{background:#211d17;color:white;border-color:#211d17}
+.cta .btn:hover{background:transparent;color:#211d17}
+/* Footer */
+footer{background:#11110f;padding:66px 0 22px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:45px;padding-bottom:42px}
+.footer-about p{font-size:11px;line-height:2;color:var(--muted);max-width:340px;margin-top:20px}
+.footer-heading{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:21px}
+.footer-links{list-style:none}
+.footer-links li{font-size:11px;color:#c1baae;margin-bottom:14px;line-height:1.8}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--line);padding-top:21px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#928b80;font-size:10px}
+.footer-bottom a{color:var(--gold)}
+/* Floating buttons */
+.float-actions{position:fixed;right:17px;bottom:20px;z-index:200;display:flex;flex-direction:column;gap:10px}
+.float-btn{height:50px;width:50px;border-radius:50%;display:grid;place-items:center;box-shadow:0 5px 20px #0004;transition:transform .25s;color:white}
+.float-btn:hover{transform:scale(1.09)}
+.float-btn svg{width:24px;height:24px;fill:currentColor}
+.float-wa{background:#25d366}
+.float-call{background:#80633e}
+/* Motion */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+/* Responsive */
+@media(max-width:950px){
+ .nav-links{gap:16px}
+ .about-grid,.philosophy-grid{gap:38px}
+ .service-img{height:240px}
+ .portfolio-grid{grid-template-rows:220px 220px}
+ .contact-grid{gap:30px}
+}
+@media(max-width:700px){
+ section{padding:74px 0}
+ .container{width:89%}
+ .navbar{height:74px}
+ .brand-icon{height:39px;width:39px}
+ .brand-title{font-size:22px}
+ .menu-toggle{display:block}
+ .nav-inner{position:relative}
+ .nav-links{display:none;position:absolute;top:56px;left:-6%;width:112%;background:#191915;padding:20px 7% 24px;flex-direction:column;align-items:stretch;gap:0;box-shadow:0 14px 25px #0005}
+ .nav-links.open{display:flex}
+ .nav-links a{font-size:12px;padding:14px 0;border-bottom:1px solid #ffffff18}
+ .nav-links .nav-contact{text-align:center;margin-top:14px;padding:14px}
+ .hero{min-height:690px;height:92svh;max-height:850px}
+ .hero-content{padding-top:45px}
+ .hero h1{font-size:clamp(49px,11vw,73px);letter-spacing:-1px}
+ .hero-content>p{font-size:12px;line-height:1.9}
+ .hero-bottom{bottom:22px;align-items:flex-end}
+ .hero-caption{font-size:8px;max-width:155px;line-height:1.8}
+ .slider-controls button{width:35px;height:35px}
+ .ticker-track{justify-content:center;gap:15px 22px}
+ .ticker span{font-size:13px}
+ .about-grid,.philosophy-grid,.contact-grid{grid-template-columns:1fr}
+ .about-grid{gap:38px}
+ .about-image-wrap>img{height:390px}
+ .about-image-wrap{padding-right:18px;padding-bottom:18px}
+ .about-tag{right:-3px;top:20px;padding:13px 16px}
+ .about-tag strong{font-size:25px}
+ .about-copy .heading{font-size:44px}
+ .services-grid{grid-template-columns:1fr 1fr;gap:12px}
+ .service-img{height:185px}
+ .service-copy{padding:15px}
+ .service-copy h3{font-size:22px}
+ .service-copy p{font-size:10px;min-height:58px}
+ .service-copy .text-link{font-size:9px;gap:5px}
+ .philosophy-grid{gap:32px}
+ .philosophy-images img{height:210px}
+ .portfolio-grid{grid-template-columns:1fr 1fr;grid-template-rows:230px 185px 185px;gap:9px}
+ .portfolio-item:first-child{grid-row:span 2}
+ .portfolio-shade{padding:13px}
+ .portfolio-shade h3{font-size:20px}
+ .process-grid{grid-template-columns:1fr 1fr;gap:13px}
+ .process-item{padding:19px 14px}
+ .why-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .why-card{padding:20px 15px}
+ .why-card h3{font-size:21px}
+ .why-card p{font-size:10px}
+ .review-grid{grid-template-columns:1fr;gap:12px}
+ .review-card{padding:23px}
+ .contact-form{padding:23px 16px}
+ .form-row{grid-template-columns:1fr;gap:0}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}
+ .footer-about{grid-column:1/-1}
+ .footer-bottom{line-height:1.9}
+ .float-actions{right:12px;bottom:14px}
+ .float-btn{width:46px;height:46px}
+}
+@media(max-width:380px){
+ .brand-title{font-size:20px}
+ .hero-actions .btn{padding:14px 15px;font-size:9px}
+ .service-img{height:155px}
+ .service-copy h3{font-size:20px}
+ .portfolio-grid{grid-template-rows:205px 170px 170px}
+ .philosophy-images img{height:175px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+ <div class="container nav-inner">
+  <a href="#home" class="brand" aria-label="MS Designs home">
+   <span class="brand-icon">M.</span>
+   <span>
+    <span class="brand-title">MS Designs</span>
+    <span class="brand-sub" style="display:block">SPACES WITH MEANING</span>
+   </span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+  <nav class="nav-links" id="navLinks">
+   <a href="#home">Home</a>
+   <a href="#about">Studio</a>
+   <a href="#services">Services</a>
+   <a href="#portfolio">Projects</a>
+   <a href="#faq">FAQ</a>
+   <a href="#contact" class="nav-contact">START A PROJECT ↗</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+ <div class="hero-images" id="heroImages">
+  <img class="active" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=85" alt="Sophisticated modern living room interior" fetchpriority="high">
+  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85" alt="Premium residential architecture" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2000&q=85" alt="Elegant contemporary interior details" loading="lazy">
+ </div>
+ <div class="hero-overlay"></div>
+ <div class="container hero-content">
+  <div class="hero-kicker">Architecture · Interiors · Landscape</div>
+  <h1>Spaces That<br>Speak <em>Your Story.</em></h1>
+  <p>Thoughtfully designed architecture, refined interiors and beautiful landscapes — creating spaces that feel personal, functional and timeless.</p>
+  <div class="hero-actions">
+   <a href="#portfolio" class="btn">EXPLORE OUR WORK <span>↗</span></a>
+   <a href="#contact" class="btn btn-ghost">LET'S TALK <span>↗</span></a>
+  </div>
+ </div>
+ <div class="hero-bottom">
+  <div class="hero-caption">Thoughtful design. Timeless spaces.</div>
+  <div class="slider-controls">
+   <span class="slider-count" id="slideCount">01 / 03</span>
+   <button id="prevSlide" aria-label="Previous hero image">←</button>
+   <button id="nextSlide" aria-label="Next hero image">→</button>
+  </div>
+ </div>
+</section>
+
+<div class="ticker">
+ <div class="container ticker-track">
+  <span><i>✳</i> Architecture</span>
+  <span><i>✳</i> Interior Design</span>
+  <span><i>✳</i> Landscape Design</span>
+  <span><i>✳</i> Thoughtful Spaces</span>
+ </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+ <div class="container about-grid">
+  <div class="about-image-wrap reveal">
+   <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Beautifully composed contemporary interior" loading="lazy">
+   <div class="about-tag"><strong>MS.</strong><span>Designing spaces with purpose, character and balance.</span></div>
+  </div>
+
+  <div class="about-copy reveal">
+   <div class="eyebrow">About the Studio</div>
+   <h2 class="heading">Design Is More<br>Than <em>Appearance.</em></h2>
+   <p>At MS Designs, we believe a well-designed space should do more than look beautiful. It should reflect your personality, support your everyday life and make every corner feel intentional.</p>
+   <p>Our design approach brings architecture, interior design and landscape planning together to create a cohesive vision for homes and other spaces.</p>
+   <div class="about-values">
+    <div class="value"><strong>Purposeful Planning</strong><span>Spaces shaped around your needs.</span></div>
+    <div class="value"><strong>Design Harmony</strong><span>Materials, lighting and form in balance.</span></div>
+    <div class="value"><strong>Personal Approach</strong><span>Your vision guides the process.</span></div>
+    <div class="value"><strong>Attention to Detail</strong><span>Thoughtful decisions at every stage.</span></div>
+   </div>
+   <a href="#contact" class="btn">DISCUSS YOUR VISION ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">What We Do</div>
+   <h2 class="heading">Designing Every <em>Dimension.</em></h2>
+   <p>From the overall structure to the smallest interior detail, explore our design services for spaces that work beautifully and feel distinctly yours.</p>
+  </div>
+
+  <div class="services-grid">
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Residential architecture and spatial planning" loading="lazy">
+     <span class="service-number">01 / ARCHITECTURE</span>
+    </div>
+    <div class="service-copy">
+     <h3>Architecture</h3>
+     <p>Architectural concepts, spatial planning, building aesthetics and thoughtful design solutions.</p>
+     <a class="text-link" href="#contact" data-service="Architecture">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Luxury interior design and furnishings" loading="lazy">
+     <span class="service-number">02 / INTERIORS</span>
+    </div>
+    <div class="service-copy">
+     <h3>Interior Design</h3>
+     <p>Elegant interiors combining furniture, textures, lighting, colours and functional layouts.</p>
+     <a class="text-link" href="#contact" data-service="Interior Design">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80" alt="Contemporary residential design inspiration" loading="lazy">
+     <span class="service-number">03 / RESIDENTIAL</span>
+    </div>
+    <div class="service-copy">
+     <h3>Home Design</h3>
+     <p>Coordinated design concepts for homes that balance comfort, aesthetics and daily living.</p>
+     <a class="text-link" href="#contact" data-service="Home Design">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=800&q=80" alt="Outdoor environment and landscaping inspiration" loading="lazy">
+     <span class="service-number">04 / LANDSCAPE</span>
+    </div>
+    <div class="service-copy">
+     <h3>Landscape Design</h3>
+     <p>Outdoor concepts connecting greenery, pathways, seating areas and architecture.</p>
+     <a class="text-link" href="#contact" data-service="Landscape Design">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Custom interior finishes and material combinations" loading="lazy">
+     <span class="service-number">05 / DETAILS</span>
+    </div>
+    <div class="service-copy">
+     <h3>Materials & Finishes</h3>
+     <p>Carefully considered surfaces, finishes, materials and details that shape the final look.</p>
+     <a class="text-link" href="#contact" data-service="Materials and Finishes">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+
+   <article class="service-card reveal">
+    <div class="service-img">
+     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Contemporary home concept and interior styling" loading="lazy">
+     <span class="service-number">06 / CONSULTATION</span>
+    </div>
+    <div class="service-copy">
+     <h3>Design Consultation</h3>
+     <p>Discuss your brief, design preferences, space requirements and ideas for your project.</p>
+     <a class="text-link" href="#contact" data-service="Design Consultation">DISCUSS SERVICE <span>↗</span></a>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+ <div class="container philosophy-grid">
+  <div class="philosophy-copy reveal">
+   <div class="eyebrow">Our Design Philosophy</div>
+   <h2 class="heading">Less Ordinary.<br><em>More Meaningful.</em></h2>
+   <p>Great design is found in the relationship between light, material, proportion and purpose. We approach each project as an opportunity to create a cohesive environment rather than a collection of individual elements.</p>
+   <ul class="philosophy-list">
+    <li>Layouts that support everyday living</li>
+    <li>Balanced materials, textures and colours</li>
+    <li>Lighting that enhances mood and function</li>
+    <li>Interiors connected to their surroundings</li>
+   </ul>
+   <a href="#contact" class="btn">START YOUR DESIGN JOURNEY ↗</a>
+  </div>
+  <div class="philosophy-images reveal">
+   <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=650&q=80" alt="Warm and elegant interior palette" loading="lazy">
+   <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=650&q=80" alt="Architectural forms and textures" loading="lazy">
+   <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=650&q=80" alt="Carefully designed contemporary room" loading="lazy">
+   <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=650&q=80" alt="Outdoor living design inspiration" loading="lazy">
+  </div>
+ </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">Selected Design Directions</div>
+   <h2 class="heading">Spaces Worth <em>Experiencing.</em></h2>
+   <p>Explore a selection of architecture, interiors and landscape design inspiration. Replace these reference images with actual MS Designs projects for a verified portfolio.</p>
+  </div>
+
+  <div class="portfolio-grid">
+   <a href="#contact" class="portfolio-item reveal" data-service="Living Room Interior">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85" alt="Sophisticated living room interior" loading="lazy">
+    <div class="portfolio-shade"><small>Interior Design</small><h3>The Living Space ↗</h3></div>
+   </a>
+   <a href="#contact" class="portfolio-item reveal" data-service="Residential Architecture">
+    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=750&q=80" alt="Residential architecture concept" loading="lazy">
+    <div class="portfolio-shade"><small>Architecture</small><h3>Modern Forms ↗</h3></div>
+   </a>
+   <a href="#contact" class="portfolio-item reveal" data-service="Interior Styling">
+    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=750&q=80" alt="Interior styling and finishes" loading="lazy">
+    <div class="portfolio-shade"><small>Interior Styling</small><h3>Quiet Luxury ↗</h3></div>
+   </a>
+   <a href="#contact" class="portfolio-item reveal" data-service="Landscape Design">
+    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=750&q=80" alt="Landscape and outdoor design inspiration" loading="lazy">
+    <div class="portfolio-shade"><small>Landscape</small><h3>Outdoor Living ↗</h3></div>
+   </a>
+   <a href="#contact" class="portfolio-item reveal" data-service="Contemporary Home Design">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=750&q=80" alt="Contemporary home design inspiration" loading="lazy">
+    <div class="portfolio-shade"><small>Residential</small><h3>Everyday Elegance ↗</h3></div>
+   </a>
+  </div>
+  <p class="portfolio-note">Portfolio imagery is illustrative and does not claim to represent completed MS Designs projects.</p>
+ </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">How We Work</div>
+   <h2 class="heading">A Clear Path to <em>Great Design.</em></h2>
+   <p>Thoughtful communication and a structured approach help turn ideas into a clear design direction.</p>
+  </div>
+  <div class="process-grid">
+   <div class="process-item reveal"><div class="process-number">01</div><h3>Discover</h3><p>Understand your needs, lifestyle, site and design preferences.</p></div>
+   <div class="process-item reveal"><div class="process-number">02</div><h3>Conceptualise</h3><p>Explore layouts, visual references, materials and design possibilities.</p></div>
+   <div class="process-item reveal"><div class="process-number">03</div><h3>Develop</h3><p>Refine the selected direction and discuss the relevant design details.</p></div>
+   <div class="process-item reveal"><div class="process-number">04</div><h3>Plan Ahead</h3><p>Discuss scope, deliverables, budget and the next steps for your project.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">The MS Designs Approach</div>
+   <h2 class="heading">Thoughtful by Design.<br><em>Personal by Nature.</em></h2>
+   <p>Our focus is on understanding what matters to you and shaping the design process around your project's needs.</p>
+  </div>
+  <div class="why-grid">
+   <article class="why-card reveal"><div class="why-icon">✳</div><h3>Design with Purpose</h3><p>Every layout and design decision should serve a clear purpose.</p></article>
+   <article class="why-card reveal"><div class="why-icon">◇</div><h3>Attention to Detail</h3><p>Thoughtful material, colour and lighting choices help bring spaces together.</p></article>
+   <article class="why-card reveal"><div class="why-icon">⌂</div><h3>Holistic Perspective</h3><p>Consider the relationship between architecture, interiors and outdoor areas.</p></article>
+   <article class="why-card reveal"><div class="why-icon">✧</div><h3>Personalised Concepts</h3><p>Explore design directions that reflect your preferences and requirements.</p></article>
+   <article class="why-card reveal"><div class="why-icon">▧</div><h3>Functional Spaces</h3><p>Balance visual appeal with practical needs and everyday usability.</p></article>
+   <article class="why-card reveal"><div class="why-icon">↗</div><h3>Clear Communication</h3><p>Discuss project scope, deliverables, budget and expectations from the start.</p></article>
+  </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">The Client Experience</div>
+   <h2 class="heading">Good Design Starts<br>with <em>Understanding.</em></h2>
+   <p>We believe every successful design journey begins with listening, thoughtful planning and a shared vision.</p>
+  </div>
+  <div class="review-grid">
+   <article class="review-card reveal"><div class="review-stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“Every space has a story. The design process should begin by understanding the people who will live in it.”</blockquote><small>OUR PHILOSOPHY · PERSONAL DESIGN</small></article>
+   <article class="review-card reveal"><div class="review-stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“A thoughtful combination of space, light and material can transform the way an environment feels.”</blockquote><small>OUR PHILOSOPHY · DESIGN HARMONY</small></article>
+   <article class="review-card reveal"><div class="review-stars">✦ ✦ ✦ ✦ ✦</div><blockquote>“Clear expectations and communication help turn a creative idea into a well-defined project.”</blockquote><small>OUR PHILOSOPHY · COLLABORATION</small></article>
+  </div>
+  <p style="text-align:center;font-size:10px;color:#777064;margin-top:22px">These are illustrative studio statements, not verified client testimonials.</p>
+ </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">Frequently Asked Questions</div>
+   <h2 class="heading">Before We <em>Begin.</em></h2>
+   <p>Some useful information to help you start a conversation about your design project.</p>
+  </div>
+  <div class="faq-grid">
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What services does MS Designs offer?</span><span>+</span></button><div class="faq-answer"><div><p>MS Designs is presented as an architecture, interior design and landscape studio. Contact the team to confirm the specific services and deliverables available for your project.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Can I discuss a residential interior project?</span><span>+</span></button><div class="faq-answer"><div><p>Yes. You can contact MS Designs with your room requirements, reference pictures, preferred style and approximate budget to discuss your project.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Do you provide architecture and landscape design?</span><span>+</span></button><div class="faq-answer"><div><p>Architecture and landscape design are included in the studio's listed service categories. Confirm project scope, site requirements and deliverables directly before proceeding.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How much does a design project cost?</span><span>+</span></button><div class="faq-answer"><div><p>Fees depend on project size, location, complexity and scope of work. Contact the studio to discuss your requirements and request a quotation.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What should I share before the first discussion?</span><span>+</span></button><div class="faq-answer"><div><p>Helpful information includes site dimensions, photographs, floor plans if available, your preferred aesthetic, budget range and project timeline.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How can I contact MS Designs?</span><span>+</span></button><div class="faq-answer"><div><p>Call 7022216851 or use the floating WhatsApp button. You can also submit the contact form on this website to prepare a WhatsApp enquiry.</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="eyebrow">Start a Conversation</div>
+   <h2 class="heading">Let's Shape Your <em>Next Space.</em></h2>
+   <p>Share a little about your project. Let's begin with your ideas, requirements and vision.</p>
+  </div>
+  <div class="contact-grid">
+   <div class="contact-copy reveal">
+    <h3 class="heading">Your Vision.<br>Our Design Journey.</h3>
+    <p>Whether you are planning a new home, reimagining an interior or designing an outdoor space, start by telling us what you have in mind.</p>
+    <a class="btn" href="https://wa.me/917022216851?text=Hello%20MS%20Designs%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">CHAT ON WHATSAPP ↗</a>
+    <div class="contact-info">
+     <div class="contact-row"><span class="contact-icon">☎</span><div><strong>Call Us</strong><span>+91 70222 16851</span></div></div>
+     <div class="contact-row"><span class="contact-icon">◎</span><div><strong>Instagram</strong><span>@_ms_designs</span></div></div>
+     <div class="contact-row"><span class="contact-icon">✉</span><div><strong>Email</strong><span>manojsolleti@gmail.com</span></div></div>
+     <div class="contact-row"><span class="contact-icon">⌂</span><div><strong>Our Services</strong><span>Architecture · Interior Design · Landscape</span></div></div>
+    </div>
+   </div>
+
+   <form class="contact-form reveal" id="contactForm">
+    <h3>Tell Us About It.</h3>
+    <div class="form-row">
+     <div class="field"><label for="customerName">YOUR NAME *</label><input id="customerName" name="name" placeholder="Your full name" required></div>
+     <div class="field"><label for="customerPhone">PHONE NUMBER *</label><input id="customerPhone" name="phone" type="tel" inputmode="tel" placeholder="Your mobile number" required></div>
+    </div>
+    <div class="field">
+     <label for="serviceSelect">SERVICE REQUIRED *</label>
+     <select id="serviceSelect" name="service" required>
+      <option value="">Choose a service</option>
+      <option>Architecture</option>
+      <option>Interior Design</option>
+      <option>Home Design</option>
+      <option>Landscape Design</option>
+      <option>Materials and Finishes</option>
+      <option>Design Consultation</option>
+      <option>Other</option>
+     </select>
+    </div>
+    <div class="field"><label for="projectBudget">APPROXIMATE BUDGET</label>
+     <select id="projectBudget" name="budget">
+      <option value="">Select if known</option>
+      <option>Under ₹5 lakh</option>
+      <option>₹5–15 lakh</option>
+      <option>₹15–30 lakh</option>
+      <option>₹30 lakh and above</option>
+      <option>To be discussed</option>
+     </select>
+    </div>
+    <div class="field"><label for="projectDetails">TELL US ABOUT YOUR PROJECT</label><textarea id="projectDetails" name="details" placeholder="Project location, size, style preferences and requirements..."></textarea></div>
+    <button class="btn" type="submit">SEND PROJECT ENQUIRY ↗</button>
+    <p class="form-help">Your enquiry opens in WhatsApp for you to review and send directly to MS Designs.</p>
+   </form>
+  </div>
+ </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+ <div class="container reveal">
+  <div class="eyebrow">Every Great Space Begins with an Idea</div>
+  <h2 class="heading">Ready to Design Something <em>Exceptional?</em></h2>
+  <p>Let's discuss your vision and explore the possibilities for your architecture, interiors or landscape project.</p>
+  <a class="btn" href="https://wa.me/917022216851?text=Hello%20MS%20Designs%2C%20I%20am%20interested%20in%20starting%20a%20design%20project." target="_blank" rel="noopener">LET'S CREATE TOGETHER ↗</a>
+ </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-about">
+    <a href="#home" class="brand">
+     <span class="brand-icon">M.</span>
+     <span><span class="brand-title">MS Designs</span><span class="brand-sub" style="display:block">SPACES WITH MEANING</span></span>
+    </a>
+    <p>Architecture, interior design and landscape concepts shaped around people, purpose and the way we experience space.</p>
+   </div>
+   <div>
+    <div class="footer-heading">Explore</div>
+    <ul class="footer-links">
+     <li><a href="#about">About the Studio</a></li>
+     <li><a href="#services">Our Services</a></li>
+     <li><a href="#portfolio">Design Gallery</a></li>
+     <li><a href="#why-us">Our Approach</a></li>
+     <li><a href="#faq">FAQs</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul>
+   </div>
+   <div>
+    <div class="footer-heading">Get in Touch</div>
+    <ul class="footer-links">
+     <li><a href="tel:+917022216851">+91 70222 16851</a></li>
+     <li><a href="mailto:manojsolleti@gmail.com">manojsolleti@gmail.com</a></li>
+     <li><a href="https://wa.me/917022216851" target="_blank" rel="noopener">WhatsApp Enquiries ↗</a></li>
+     <li><a href="https://www.instagram.com/_ms_designs/" target="_blank" rel="noopener">Instagram: @_ms_designs ↗</a></li>
+    </ul>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>© <span id="year"></span> MS Designs. All rights reserved.</span>
+   <span>Website crafted by <a href="#">Marwar Infotech</a></span>
+  </div>
+ </div>
+</footer>
+
+<!-- Floating WhatsApp + Call -->
+<div class="float-actions">
+ <a class="float-btn float-wa" href="https://wa.me/917022216851?text=Hello%20MS%20Designs%2C%20I%20have%20a%20project%20enquiry." target="_blank" rel="noopener" aria-label="Contact MS Designs on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.13 0C5.61 0 .3 5.3.3 11.83c0 2.08.55 4.11 1.6 5.9L.2 24l6.43-1.68a11.82 11.82 0 0 0 5.5 1.4h.01c6.52 0 11.83-5.31 11.83-11.83 0-3.16-1.23-6.13-3.45-8.41zM12.14 21.7a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.82 1 1.02-3.73-.24-.38a9.8 9.8 0 1 1 8.39 4.68zm5.37-7.34c-.3-.15-1.79-.88-2.07-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.49-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52h-.58c-.2 0-.53.08-.81.38-.28.3-1.06 1.03-1.06 2.52s1.09 2.92 1.24 3.12c.15.2 2.14 3.27 5.19 4.59.73.31 1.3.5 1.75.64.74.24 1.41.21 1.94.13.59-.09 1.79-.73 2.04-1.44.25-.71.25-1.31.18-1.44-.08-.13-.28-.2-.58-.35z"/></svg>
+ </a>
+ <a class="float-btn float-call" href="tel:+917022216851" aria-label="Call MS Designs">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.56 3.57.56.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.19 2.45.56 3.57a1 1 0 0 1-.25 1.02z"/></svg>
+ </a>
+</div>
+
+<script>
+/* Mobile navigation */
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.textContent = open ? '×' : '☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+/* Automatic and manual hero slider */
+const heroSlides = [...document.querySelectorAll('#heroImages img')];
+const slideCount = document.getElementById('slideCount');
+let activeSlide = 0;
+let autoSlideTimer;
+
+function showHeroSlide(index) {
+  activeSlide = (index + heroSlides.length) % heroSlides.length;
+  heroSlides.forEach((img, i) => img.classList.toggle('active', i === activeSlide));
+  slideCount.textContent = String(activeSlide + 1).padStart(2, '0') + ' / ' +
+    String(heroSlides.length).padStart(2, '0');
+}
+
+function restartHeroTimer() {
+  clearInterval(autoSlideTimer);
+  autoSlideTimer = setInterval(() => showHeroSlide(activeSlide + 1), 5500);
+}
+
+document.getElementById('prevSlide').addEventListener('click', () => {
+  showHeroSlide(activeSlide - 1);
+  restartHeroTimer();
+});
+document.getElementById('nextSlide').addEventListener('click', () => {
+  showHeroSlide(activeSlide + 1);
+  restartHeroTimer();
+});
+restartHeroTimer();
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.faq-item');
+    const shouldOpen = !item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(other => {
+      other.classList.remove('open');
+      other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    if (shouldOpen) {
+      item.classList.add('open');
+      button.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* Scroll reveal animations */
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+
+  revealElements.forEach(el => revealObserver.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('visible'));
+}
+
+/* Service and portfolio links prefill the enquiry form */
+document.querySelectorAll('[data-service]').forEach(link => {
+  link.addEventListener('click', () => {
+    const service = link.dataset.service;
+    const select = document.getElementById('serviceSelect');
+    const details = document.getElementById('projectDetails');
+    const option = [...select.options].find(opt =>
+      opt.value.toLowerCase() === service.toLowerCase() ||
+      opt.text.toLowerCase() === service.toLowerCase()
+    );
+
+    if (option) {
+      select.value = option.value;
+    } else {
+      select.value = 'Other';
+      details.value = 'I am interested in: ' + service + '. Please share more information.';
+    }
+  });
+});
+
+/* Contact form opens a prefilled WhatsApp enquiry */
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+  const service = document.getElementById('serviceSelect').value;
+  const budget = document.getElementById('projectBudget').value;
+  const details = document.getElementById('projectDetails').value.trim();
+
+  if (!name || !phone || !service) {
+    alert('Please fill in your name, phone number and service required.');
+    return;
+  }
+
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    alert('Please enter a valid phone number.');
+    return;
+  }
+
+  const message =
+    'Hello MS Designs! I would like to discuss a project.\n\n' +
+    'Name: ' + name + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Service: ' + service + '\n' +
+    'Budget: ' + (budget || 'Not specified') + '\n' +
+    'Project details: ' + (details || 'To be discussed') + '\n\n' +
+    'Please contact me to discuss the next steps.';
+
+  const url = 'https://wa.me/917022216851?text=' + encodeURIComponent(message);
+  const popup = window.open(url, '_blank');
+
+  if (popup) popup.opener = null;
+  else window.location.href = url;
+});
+
+/* Dynamic copyright year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
